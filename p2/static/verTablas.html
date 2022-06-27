@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Tablas</title>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td>T1: producto</td>
+            <td>T2: pedido</td>
+            <td>T3: detallePedido</td>
+            <td>T4: tipoPedido</td>
+            <td>T5: estadoPedido</td>
+            <td>T6: estadoEntrega</td>
+            <td>T7: cliente</td>
+            <td>T8: giro</td>
+            <td>T9: proveedor</td>
+            <td>T10: usuario</td>
+        </tr>
+        
+        <tr>
+            <td>{% for elemento in tabla1 %}
+                <h6>{{elemento.nombre}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla2 %}
+                <h6>{{elemento.totalPedido}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla3 %}
+                <h6>{{elemento.subtotalPedido}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla4 %}
+                <h6>{{elemento.descripcion}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla5 %}
+                <h6>{{elemento.descripcion}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla6 %}
+                <h6>{{elemento.descripcion}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla7 %}
+                <h6>{{elemento.nombreFantasia}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla8 %}
+                <h6>{{elemento.descripcion}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla9 %}
+                <h6>{{elemento.nombreFantasia}}</h6>
+                {% endfor %}</td>
+            <td>{% for elemento in tabla10 %}
+                <h6>{{elemento.nombreUsuario}}</h6>
+            {% endfor %}</td>
+        </tr>
+  
+    </table>
+
+</body>
+</html>
