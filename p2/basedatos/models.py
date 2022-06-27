@@ -74,3 +74,4 @@ class usuario(models.Model):
   nombreUsuario = models.CharField(max_length=20)
   password = models.CharField(max_length=20)
   suscripcion = models.BooleanField()
+  logueado = models.BooleanField(default = 0)
