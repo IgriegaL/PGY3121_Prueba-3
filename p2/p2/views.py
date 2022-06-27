@@ -3,6 +3,7 @@ from django.template import Template, Context
 from django.shortcuts import render
 from basedatos.models import producto, pedido, detallePedido, tipoPedido, estadoPedido, estadoEntrega, cliente, giro, proveedor, usuario
 
+
 def inicio(request):
     user = ""
     pwd = ""
@@ -24,6 +25,30 @@ def inicio(request):
     
     return render(request, "index.html",contexto)
 
+
+def productos(request):
+    user = ""
+    pwd = ""
+    mensaje = ""
+    llamadabd = []
+    try:
+        user = request.GET["correo"]
+        pwd = request.GET["password"]
+        llamadabd = usuario.objects.filter(nombreUsuario__icontains=user, password__icontains=pwd)
+        print(llamadabd[0].nombreUsuario)
+        print(llamadabd[0].password)
+        mensaje = f'Ha iniciado sesión el usuario {user}'
+    except:
+        mensaje = f'Los datos ingresados son inválidos, por favor intente nuevamente'
+    
+    llamadabd = producto.objects.all()
+    contexto = {'datos': llamadabd,
+                'llamadabd':llamadabd,
+                'mensaje':mensaje,
+                'user':user
+                }
+    return render(request, "productos.html", contexto)
+
 def seguimiento(request):
     return render(request, "seguimiento.html")
 
@@ -33,8 +58,7 @@ def donacion(request):
 def carritoCompra(request):
     return render(request, "carritoCompra.html")
 
-def productos(request):
-    return render(request, "productos.html")
+
 
 def verTablas(request):
 
